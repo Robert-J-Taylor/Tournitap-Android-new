@@ -3,7 +3,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="homePageHeader">Tournitap</string>
+    <string name="aboutUs">About Us</string>
+    <string name="contactUs">Contact Us</string>
     <string name="sign_in">Sign-In</string>
     <string name="title_activity_find_tournament">FindTournamentActivity</string>
     <string name="title_activity_sign_in">Sign in</string>
