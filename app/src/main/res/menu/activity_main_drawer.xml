@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/findTournament"
+            android:title="Find Tournament"/>
+        <item
+            android:id="@+id/createTournament"
+            android:title="Create Tournament"/>
+        <item
+            android:id="@+id/searchFriends"
+            android:title="SearchForFriends"/>
+        <item
+            android:id="@+id/contactUs"
+            android:title="ContactUs"/>
+        <item
+            android:id="@+id/aboutUs"
+            android:title="AboutUs"/>
+    </group>
+
+    <item android:title="FriendsList">
+        <menu>
+            <item
+                android:id="@+id/friendOnline"
+                android:title="Online"/>
+            <item
+                android:id="@+id/friendAway"
+                android:title="Away"/>
+            <item
+                android:id="@+id/friendOffline"
+                android:title="Offline"/>
+        </menu>
+    </item>
+
+</menu>
