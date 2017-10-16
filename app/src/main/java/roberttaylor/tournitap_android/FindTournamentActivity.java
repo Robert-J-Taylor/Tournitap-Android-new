@@ -1,6 +1,5 @@
 package roberttaylor.tournitap_android;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,13 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+public class FindTournamentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_find_tournament);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.find_tournament, menu);
         return true;
     }
 
@@ -69,12 +68,6 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.sign_in) {
-            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-            startActivity(intent);
-            return true;
-        } else if(id == R.id.register){
-            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-            startActivity(intent);
             return true;
         }
 
@@ -87,18 +80,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.findTournament) {
-            Intent intent = new Intent(MainActivity.this, FindTournamentActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.createTournament) {
-            Intent intent = new Intent(MainActivity.this, CreateTournamentActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.searchFriends) {
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.contactUs) {
+        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.aboutUs) {
+        } else if (id == R.id.nav_manage) {
 
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
 
         }
 

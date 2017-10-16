@@ -6,9 +6,4 @@
         android:orderInCategory="100"
         android:title="@string/sign_in"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/register"
-        android:orderInCategory="100"
-        android:title="@string/register"
-        app:showAsAction="never"/>
 </menu>
