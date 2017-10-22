@@ -10,6 +10,7 @@
     <string name="title_activity_find_tournament">FindTournamentActivity</string>
     <string name="title_activity_sign_in">Sign in</string>
     <string name="register">Register</string>
+    <string name="enter_tournamentName">Enter Tournament Name:</string>
     <!--Strings Related To Tournament Creation-->
     <string name="tournamentName">Tournament Name</string>
     <string name="description">Description</string>
@@ -29,4 +30,12 @@
         completions."
     </string>
     <string name="title_activity_register">Sign in</string>
+    <string name="hint_item">Enter Tournament Name</string>
+    <string name="gameType_hint">Enter game type</string>
+    <string name="save_title">Create Tournament</string>
+    <string name="formatName_hint">Enter Format For Tournament</string>
+    <string name="numParticipants_hint">Enter # of Participants of Tournament</string>
+    <string name="sure_text">Are You Sure?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 </resources>

@@ -1,8 +1,14 @@
 package roberttaylor.tournitap_android;
 
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,10 +18,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import roberttaylor.tournitap_android.Data.DatabaseHandler;
+import roberttaylor.tournitap_android.Model.Tournament;
+import roberttaylor.tournitap_android.UI.RecyclerViewAdapter;
 
 public class FindTournamentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
+    private List<Tournament> tournamentList;
+    private List<Tournament> listItems;
+    private DatabaseHandler db;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
 
+    private EditText tournamentName;
+    private EditText gameType;
+    private EditText formatName;
+    private EditText numParticipants;
+    private Button saveButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +54,39 @@ public class FindTournamentActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+                createPopDialog();
             }
         });
+        db = new DatabaseHandler(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewID);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        tournamentList = new ArrayList<>();
+        listItems = new ArrayList<>();
+
+        // Get items from database
+        tournamentList = db.getAllTournament();
+
+        for (Tournament c : tournamentList) {
+            Tournament tournament = new Tournament();
+            tournament.setName(c.getName());
+            tournament.setGameType("GameType: " + c.getGameType());
+            tournament.setId(c.getId());
+            tournament.setFormatName("Format: " + c.getFormatName());
+            tournament.setNumParticipants("# Of Participants: " + c.getNumParticipants());
+
+
+            listItems.add(tournament);
+
+        }
+
+        recyclerViewAdapter = new RecyclerViewAdapter(this, listItems);
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerViewAdapter.notifyDataSetChanged();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,6 +98,62 @@ public class FindTournamentActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void createPopDialog() {
+
+        dialogBuilder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.popup, null);
+        tournamentName = (EditText) view.findViewById(R.id.tournamentName);
+        gameType = (EditText) view.findViewById(R.id.gameType);
+        formatName = (EditText) view.findViewById(R.id.formatName);
+        numParticipants = (EditText) view.findViewById(R.id.numParticipants);
+        saveButton = (Button) view.findViewById(R.id.saveButton);
+
+
+        dialogBuilder.setView(view);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveGroceryToDB(v);
+            }
+        });
+
+
+
+    }
+
+    private void saveGroceryToDB(View v) {
+
+        Tournament tournament = new Tournament();
+
+        String newTournament = tournamentName.getText().toString();
+        String newTournamentGameType = gameType.getText().toString();
+        String newTournamentFormatName = formatName.getText().toString();
+        String newTournamentNumParticipants = numParticipants.getText().toString();
+
+        tournament.setName(newTournament);
+        tournament.setGameType(newTournamentGameType);
+        tournament.setFormatName(newTournamentFormatName);
+        tournament.setNumParticipants(newTournamentNumParticipants);
+
+        //Save to DB
+        db.addTournament(tournament);
+
+        Snackbar.make(v, "Item Saved!", Snackbar.LENGTH_LONG).show();
+
+        // Log.d("Item Added ID:", String.valueOf(db.getGroceriesCount()));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+                //start a new activity
+                startActivity(new Intent(FindTournamentActivity.this, FindTournamentActivity.class));
+            }
+        }, 1200); //  1 second.
+
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
