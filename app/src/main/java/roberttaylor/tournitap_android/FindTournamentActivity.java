@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,8 @@ import java.util.List;
 import roberttaylor.tournitap_android.Data.DatabaseHandler;
 import roberttaylor.tournitap_android.Model.Tournament;
 import roberttaylor.tournitap_android.UI.RecyclerViewAdapter;
+
+import static roberttaylor.tournitap_android.R.string.displayTournamentCount;
 
 public class FindTournamentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,7 +40,6 @@ public class FindTournamentActivity extends AppCompatActivity
     private DatabaseHandler db;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-
     private EditText tournamentName;
     private EditText gameType;
     private EditText formatName;
@@ -47,6 +49,8 @@ public class FindTournamentActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_tournament);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -60,6 +64,10 @@ public class FindTournamentActivity extends AppCompatActivity
             }
         });
         db = new DatabaseHandler(this);
+
+        TextView count = (TextView) findViewById(R.id.tournamentDisplayCount);
+        count.setText("Displaying " + String.valueOf(db.getTournamentCount()) + " Tournaments");
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewID);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

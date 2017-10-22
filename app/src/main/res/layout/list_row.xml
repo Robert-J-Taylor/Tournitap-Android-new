@@ -10,7 +10,8 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="12.10">
+        android:layout_weight="12.10"
+        >
 
     </android.support.v7.widget.CardView>
 
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="12.10"
+        android:background="@android:color/black"
         android:padding="15dp">
 
         <TextView
@@ -26,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Tournament Name"
             android:textSize="18sp"
+            android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
         <TextView
@@ -35,7 +38,9 @@
             android:layout_below="@id/tournamentName"
             android:paddingTop="5dp"
             android:text="GameType:"
+            android:textColor="@android:color/white"
             android:textStyle="italic"/>
+
         <TextView
             android:id="@+id/formatName"
             android:layout_width="wrap_content"
@@ -43,13 +48,16 @@
             android:layout_below="@id/gameType"
             android:paddingTop="5dp"
             android:text="format:"
+            android:textColor="@android:color/white"
             android:textStyle="italic"/>
+
         <TextView
             android:id="@+id/numParticipants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/formatName"
             android:paddingTop="5dp"
+            android:textColor="@android:color/white"
             android:text="numParticipants:"
             android:textStyle="italic"/>
 

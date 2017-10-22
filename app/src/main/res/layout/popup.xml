@@ -18,9 +18,9 @@
                 android:id="@+id/tile"
                 android:layout_width="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textStyle="italic"
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:text="@string/enter_tournamentName"
+                android:text="@string/popup_title"
                 android:layout_height="wrap_content" />
 
 
@@ -60,7 +60,7 @@
                 android:text="@string/save_title"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:background="@color/colorAccent"
+                android:background="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
