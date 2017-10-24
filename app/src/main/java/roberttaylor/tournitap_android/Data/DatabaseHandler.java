@@ -43,7 +43,11 @@ import java.util.List;
                     + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_NAME + " TEXT,"
                     + Constants.KEY_GAMETYPE + " TEXT,"
                     + Constants.KEY_FORMATNAME + " TEXT,"
-                    + Constants.KEY_NUMPARTICIPANTS + " TEXT);";
+                    + Constants.KEY_NUMPARTICIPANTS + " TEXT,"
+                    + Constants.KEY_STAGETYPE + " TEXT,"
+                    + Constants.KEY_SKILLLEVEL + " TEXT,"
+                    + Constants.KEY_TOTALROUNDS + " TEXT,"
+                    + Constants.KEY_DESCRIPTION + " TEXT);";
 
             db.execSQL(CREATE_GROCERY_TABLE);
 
@@ -72,6 +76,10 @@ import java.util.List;
             values.put(Constants.KEY_GAMETYPE, tournament.getGameType());
             values.put(Constants.KEY_FORMATNAME, tournament.getFormatName());
             values.put(Constants.KEY_NUMPARTICIPANTS, tournament.getNumParticipants());
+            values.put(Constants.KEY_STAGETYPE, tournament.getStageType());
+            values.put(Constants.KEY_SKILLLEVEL, tournament.getSkillLevel());
+            values.put(Constants.KEY_TOTALROUNDS, tournament.getTotalRounds());
+            values.put(Constants.KEY_DESCRIPTION, tournament.getDescription());
 
             //Insert the row
             db.insert(Constants.TABLE_NAME, null, values);
@@ -86,7 +94,8 @@ import java.util.List;
             SQLiteDatabase db = this.getWritableDatabase();
 
             Cursor cursor = db.query(Constants.TABLE_NAME, new String[] {Constants.KEY_ID,
-                            Constants.KEY_NAME, Constants.KEY_GAMETYPE, Constants.KEY_FORMATNAME,Constants.KEY_NUMPARTICIPANTS},
+                            Constants.KEY_NAME, Constants.KEY_GAMETYPE, Constants.KEY_FORMATNAME, Constants.KEY_NUMPARTICIPANTS, Constants.KEY_STAGETYPE,
+                    Constants.KEY_SKILLLEVEL, Constants.KEY_TOTALROUNDS, Constants.KEY_DESCRIPTION},
                     Constants.KEY_ID + "=?",
                     new String[] {String.valueOf(id)}, null, null, null, null);
 
@@ -100,6 +109,10 @@ import java.util.List;
             tournament.setGameType(cursor.getString(cursor.getColumnIndex(Constants.KEY_GAMETYPE)));
             tournament.setFormatName(cursor.getString(cursor.getColumnIndex(Constants.KEY_FORMATNAME)));
             tournament.setNumParticipants(cursor.getString(cursor.getColumnIndex(Constants.KEY_NUMPARTICIPANTS)));
+            tournament.setStageType(cursor.getString(cursor.getColumnIndex(Constants.KEY_STAGETYPE)));
+            tournament.setSkillLevel(cursor.getString(cursor.getColumnIndex(Constants.KEY_SKILLLEVEL)));
+            tournament.setTotalRounds(cursor.getString(cursor.getColumnIndex(Constants.KEY_TOTALROUNDS)));
+            tournament.setDescription(cursor.getString(cursor.getColumnIndex(Constants.KEY_DESCRIPTION)));
 
 
 
@@ -107,7 +120,7 @@ import java.util.List;
         }
 
 
-        //Get all Groceries
+        //Get all Tournaments
         public List<Tournament> getAllTournament() {
             SQLiteDatabase db = this.getReadableDatabase();
 
@@ -115,7 +128,8 @@ import java.util.List;
 
             Cursor cursor = db.query(Constants.TABLE_NAME, new String[] {
                     Constants.KEY_ID, Constants.KEY_NAME, Constants.KEY_GAMETYPE,
-                    Constants.KEY_FORMATNAME, Constants.KEY_NUMPARTICIPANTS}, null, null, null, null, null);
+                    Constants.KEY_FORMATNAME, Constants.KEY_NUMPARTICIPANTS, Constants.KEY_STAGETYPE,
+                    Constants.KEY_SKILLLEVEL, Constants.KEY_TOTALROUNDS, Constants.KEY_DESCRIPTION}, null, null, null, null, null);
 
             if (cursor.moveToFirst()) {
                 do {
@@ -125,6 +139,10 @@ import java.util.List;
                     tournament.setGameType(cursor.getString(cursor.getColumnIndex(Constants.KEY_GAMETYPE)));
                     tournament.setFormatName(cursor.getString(cursor.getColumnIndex(Constants.KEY_FORMATNAME)));
                     tournament.setNumParticipants(cursor.getString(cursor.getColumnIndex(Constants.KEY_NUMPARTICIPANTS)));
+                    tournament.setStageType(cursor.getString(cursor.getColumnIndex(Constants.KEY_STAGETYPE)));
+                    tournament.setSkillLevel(cursor.getString(cursor.getColumnIndex(Constants.KEY_SKILLLEVEL)));
+                    tournament.setTotalRounds(cursor.getString(cursor.getColumnIndex(Constants.KEY_TOTALROUNDS)));
+                    tournament.setDescription(cursor.getString(cursor.getColumnIndex(Constants.KEY_DESCRIPTION)));
 
 
                     // Add to the tournamentList
@@ -146,6 +164,11 @@ import java.util.List;
             values.put(Constants.KEY_GAMETYPE, tournament.getGameType());
             values.put(Constants.KEY_FORMATNAME, tournament.getFormatName());
             values.put(Constants.KEY_NUMPARTICIPANTS, tournament.getNumParticipants());
+            values.put(Constants.KEY_STAGETYPE, tournament.getStageType());
+            values.put(Constants.KEY_SKILLLEVEL, tournament.getSkillLevel());
+            values.put(Constants.KEY_TOTALROUNDS, tournament.getTotalRounds());
+            values.put(Constants.KEY_DESCRIPTION, tournament.getDescription());
+
 
 
 

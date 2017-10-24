@@ -98,10 +98,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Tournament tournament = tournamentItems.get(position);
                     Intent intent = new Intent(context, TournamentDetails.class);
                     intent.putExtra("id",tournament.getId());
-                    intent.putExtra("name", tournament.getName());
+                    intent.putExtra("tournamentName", tournament.getName());
                     intent.putExtra("gameType", tournament.getGameType());
                     intent.putExtra("formatName", tournament.getFormatName());
                     intent.putExtra("numParticipants", tournament.getNumParticipants());
+                    intent.putExtra("stageType", tournament.getStageType());
+                    intent.putExtra("skillLevel", tournament.getSkillLevel());
+                    intent.putExtra("totalRounds", tournament.getTotalRounds());
+                    intent.putExtra("description", tournament.getDescription());
                     context.startActivity(intent);
 
 
@@ -184,6 +188,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             final EditText gameType = (EditText) view.findViewById(R.id.gameType);
             final EditText formatName = (EditText) view.findViewById(R.id.formatName);
             final EditText numParticipants = (EditText) view.findViewById(R.id.numParticipants);
+            final EditText stageType=(EditText) view.findViewById(R.id.stageType);
+            final EditText skillLevel=(EditText) view.findViewById(R.id.skillLevel);
+            final EditText totalRounds=(EditText) view.findViewById(R.id.totalRounds);
+            final EditText description=(EditText) view.findViewById(R.id.description);
             final TextView title = (TextView) view.findViewById(R.id.tile);
 
             title.setText("Edit Grocery");
@@ -202,17 +210,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     //Update item
                     tournament.setName(tournamentName.getText().toString());
-                    tournament.setGameType(gameType.getText().toString());
-                    tournament.setFormatName(formatName.getText().toString());
-                    tournament.setNumParticipants(numParticipants.getText().toString());
+                    tournament.setGameType("GameType:" + gameType.getText().toString());
+                    tournament.setFormatName("Format:" + formatName.getText().toString());
+                    tournament.setNumParticipants("# of Participants:" + numParticipants.getText().toString());
+                    tournament.setStageType("StageType:" + stageType.getText().toString());
+                    tournament.setSkillLevel("SkillLevel:" + skillLevel.getText().toString());
+                    tournament.setTotalRounds("Total Rounds:" + totalRounds.getText().toString());
+                    tournament.setDescription(description.getText().toString());
 
-                    if (!tournamentName.getText().toString().isEmpty()
-                            && !gameType.getText().toString().isEmpty()) {
+//                    if (!tournamentName.getText().toString().isEmpty()
+//                            && !gameType.getText().toString().isEmpty()
+//                            && !formatName.getText().toString().isEmpty()
+//                            && !stageType.getText().toString().isEmpty()
+//                            && !skillLevel.getText().toString().isEmpty()
+//                            && !totalRounds.getText().toString().isEmpty()
+//                            && !description.getText().toString().isEmpty())
+//                    {
                         db.updateGrocery(tournament);
                         notifyItemChanged(getAdapterPosition(),tournament);
-                    }else {
-                        Snackbar.make(view, "Add Grocery and Quantity", Snackbar.LENGTH_LONG).show();
-                    }
+//                    }else {
+//                        Snackbar.make(view, "Please Fill Out All Fields", Snackbar.LENGTH_LONG).show();
+//                    }
 
                     dialog.dismiss();
 

@@ -60,6 +60,15 @@
             android:textColor="@android:color/white"
             android:text="numParticipants:"
             android:textStyle="italic"/>
+        <!--<TextView-->
+            <!--android:id="@+id/stageType"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/numParticipants"-->
+            <!--android:paddingTop="5dp"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:text="stageType:"-->
+            <!--android:textStyle="italic"/>-->
 
         <TableRow
             android:layout_width="wrap_content"

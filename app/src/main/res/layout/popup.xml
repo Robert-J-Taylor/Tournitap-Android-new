@@ -10,59 +10,91 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:padding="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="25dp">
 
             <TextView
                 android:id="@+id/tile"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textSize="18sp"
                 android:text="@string/popup_title"
-                android:layout_height="wrap_content" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
 
             <EditText
                 android:id="@+id/tournamentName"
-                android:layout_below="@id/tile"
                 android:layout_width="match_parent"
-                android:hint="@string/hint_item"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tile"
+                android:hint="@string/hint_item"/>
 
             <EditText
                 android:id="@+id/gameType"
-                android:layout_below="@id/tournamentName"
-                android:hint="@string/gameType_hint"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tournamentName"
+                android:layout_marginTop="15dp"
+                android:hint="@string/gameType_hint"/>
+
             <EditText
                 android:id="@+id/formatName"
-                android:layout_below="@id/gameType"
-                android:hint="@string/formatName_hint"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gameType"
+                android:layout_marginTop="15dp"
+                android:hint="@string/formatName_hint"/>
+
             <EditText
                 android:id="@+id/numParticipants"
-                android:layout_below="@id/formatName"
-                android:hint="@string/numParticipants_hint"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/formatName"
+                android:layout_marginTop="15dp"
+                android:hint="@string/numParticipants_hint"/>
+
+            <EditText
+                android:id="@+id/stageType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/numParticipants"
+                android:layout_marginTop="15dp"
+                android:hint="@string/stageType_hint"/>
+            <EditText
+                android:id="@+id/skillLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stageType"
+                android:layout_marginTop="15dp"
+                android:hint="@string/skillLevel_Hint"/>
+            <EditText
+                android:id="@+id/totalRounds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/skillLevel"
+                android:layout_marginTop="15dp"
+                android:hint="@string/totalRounds_Hint"/>
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalRounds"
+                android:layout_marginTop="15dp"
+                android:hint="@string/description_Hint"/>
 
             <Button
                 android:id="@+id/saveButton"
-                android:layout_marginTop="5dp"
-                android:layout_below="@id/numParticipants"
-                android:text="@string/save_title"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/description"
+                android:background="@android:color/black"
+                android:text="@string/save_title"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
 
 
         </RelativeLayout>

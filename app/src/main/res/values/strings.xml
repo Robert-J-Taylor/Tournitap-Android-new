@@ -40,4 +40,8 @@
     <string name="yes">Yes</string>
     <string name="popup_title">Tournament Form</string>
     <string name="displayTournamentCount">Displaying _ Tournaments</string>
+    <string name="stageType_hint">Enter Stage Type</string>
+    <string name="skillLevel_Hint">Enter Skill Level</string>
+    <string name="description_Hint">Enter Tournament Description</string>
+    <string name="totalRounds_Hint">Enter Total # of Rounds</string>
 </resources>

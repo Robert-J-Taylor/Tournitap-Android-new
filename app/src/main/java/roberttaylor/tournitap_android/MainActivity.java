@@ -32,7 +32,12 @@ public class MainActivity extends AppCompatActivity
     private EditText gameType;
     private EditText formatName;
     private EditText numParticipants;
+    private EditText stageType;
+    private EditText skillLevel;
+    private EditText totalRounds;
+    private EditText description;
     private Button saveButton;
+
     private DatabaseHandler db;
 
     @Override
@@ -129,6 +134,10 @@ public class MainActivity extends AppCompatActivity
         gameType = (EditText) view.findViewById(R.id.gameType);
         formatName =(EditText) view.findViewById(R.id.formatName);
         numParticipants =(EditText) view.findViewById(R.id.numParticipants);
+        stageType=(EditText) view.findViewById(R.id.stageType);
+        skillLevel=(EditText) view.findViewById(R.id.skillLevel);
+        totalRounds=(EditText) view.findViewById(R.id.totalRounds);
+        description=(EditText) view.findViewById(R.id.description);
         saveButton = (Button) view.findViewById(R.id.saveButton);
 
         dialogBuilder.setView(view);
@@ -143,13 +152,13 @@ public class MainActivity extends AppCompatActivity
 
                 if (!tournamentName.getText().toString().isEmpty()
                         && !gameType.getText().toString().isEmpty()) {
-                    saveGroceryToDB(v);
+                    saveTournamentToDB(v);
                 }
 
             }
         });
     }
-    private void saveGroceryToDB(View v) {
+    private void saveTournamentToDB(View v) {
 
         Tournament tournament = new Tournament();
 
@@ -157,11 +166,19 @@ public class MainActivity extends AppCompatActivity
         String newTournamentGameType = gameType.getText().toString();
         String newTournamentFormatName = formatName.getText().toString();
         String newTournamentNumParticipants = numParticipants.getText().toString();
+        String newStageType = stageType.getText().toString();
+        String newSkillLevel = skillLevel.getText().toString();
+        String newTotalRounds = totalRounds.getText().toString();
+        String newDescription = description.getText().toString();
 
         tournament.setName(newTournament);
         tournament.setGameType(newTournamentGameType);
         tournament.setFormatName(newTournamentFormatName);
         tournament.setNumParticipants(newTournamentNumParticipants);
+        tournament.setStageType(newStageType);
+        tournament.setSkillLevel(newSkillLevel);
+        tournament.setTotalRounds(newTotalRounds);
+        tournament.setDescription(newDescription);
 
         //Save to DB
         db.addTournament(tournament);

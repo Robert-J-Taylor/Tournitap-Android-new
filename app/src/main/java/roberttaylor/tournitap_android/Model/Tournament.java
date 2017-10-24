@@ -10,22 +10,36 @@ public class Tournament {
     private String gameType;
     private String numParticipants;
     private String formatName;
+    private String stageType;
+    private String skillLevel;
+    private String description;
+    private String totalRounds;
 
     public Tournament() {
     }
-    public Tournament(int id, String name, String gameType, String numParticipants, String formatName) {
+    public Tournament(int id, String name, String gameType, String numParticipants, String formatName,String stageType,
+    String skillLevel, String description, String totalRounds) {
         this.id = id;
         this.name = name;
         this.gameType = gameType;
         this.numParticipants = numParticipants;
         this.formatName = formatName;
+        this.stageType = stageType;
+        this.skillLevel = skillLevel;
+        this.description = description;
+        this.totalRounds = totalRounds;
     }
 
-    public Tournament(String name, String gameType, String numParticipants, String formatName) {
+    public Tournament(String name, String gameType, String numParticipants, String formatName, String stageType,
+                      String skillLevel, String description, String totalRounds) {
         this.name = name;
         this.gameType = gameType;
         this.numParticipants = numParticipants;
         this.formatName = formatName;
+        this.stageType = stageType;
+        this.skillLevel = skillLevel;
+        this.description = description;
+        this.totalRounds = totalRounds;
     }
 
     public int getId() {
@@ -67,4 +81,33 @@ public class Tournament {
     public void setFormatName(String formatName) {
         this.formatName = formatName;
     }
+
+    public String getStageType(){return stageType;}
+
+    public void setStageType(String stageType){ this.stageType = stageType;}
+
+    public String getSkillLevel() {
+        return skillLevel;
+    }
+
+    public void setSkillLevel(String skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTotalRounds() {
+        return totalRounds;
+    }
+
+    public void setTotalRounds(String totalRounds) {
+        this.totalRounds = totalRounds;
+    }
+
 }

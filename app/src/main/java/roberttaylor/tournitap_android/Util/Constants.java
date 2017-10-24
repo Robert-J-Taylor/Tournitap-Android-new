@@ -6,7 +6,7 @@ package roberttaylor.tournitap_android.Util;
 
 public class Constants {
     //Database version
-    public static final int DATABASE_VERSION =1;
+    public static final int DATABASE_VERSION =3;
     public static final String DATABASE_NAME ="tournmentAndroidDB";
     public static final String TABLE_NAME ="tournamentTBL";
 
@@ -16,4 +16,8 @@ public class Constants {
     public static final String KEY_GAMETYPE="gameType";
     public static final String KEY_NUMPARTICIPANTS="numParticipants";
     public static final String KEY_FORMATNAME="formatName";
+    public static final String KEY_STAGETYPE="stageType";
+    public static final String KEY_SKILLLEVEL="skillLevel";
+    public static final String KEY_DESCRIPTION="description";
+    public static final String KEY_TOTALROUNDS="totalRounds";
 }

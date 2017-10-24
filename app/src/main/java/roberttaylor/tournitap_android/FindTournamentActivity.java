@@ -44,7 +44,12 @@ public class FindTournamentActivity extends AppCompatActivity
     private EditText gameType;
     private EditText formatName;
     private EditText numParticipants;
+    private EditText stageType;
+    private EditText skillLevel;
+    private EditText totalRounds;
+    private EditText description;
     private Button saveButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +90,10 @@ public class FindTournamentActivity extends AppCompatActivity
             tournament.setId(c.getId());
             tournament.setFormatName("Format: " + c.getFormatName());
             tournament.setNumParticipants("# Of Participants: " + c.getNumParticipants());
-
+            tournament.setStageType("StageType:" + c.getStageType());
+            tournament.setSkillLevel("SkillLevel:" + c.getSkillLevel());
+            tournament.setTotalRounds("Total Rounds:" + c.getTotalRounds());
+            tournament.setDescription(c.getDescription());
 
             listItems.add(tournament);
 
@@ -114,6 +122,10 @@ public class FindTournamentActivity extends AppCompatActivity
         gameType = (EditText) view.findViewById(R.id.gameType);
         formatName = (EditText) view.findViewById(R.id.formatName);
         numParticipants = (EditText) view.findViewById(R.id.numParticipants);
+        stageType = (EditText) view.findViewById(R.id.stageType);
+        skillLevel =(EditText) view.findViewById(R.id.skillLevel);
+        totalRounds =(EditText) view.findViewById(R.id.totalRounds);
+        description=(EditText) view.findViewById(R.id.description);
         saveButton = (Button) view.findViewById(R.id.saveButton);
 
 
@@ -124,7 +136,7 @@ public class FindTournamentActivity extends AppCompatActivity
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveGroceryToDB(v);
+                saveTournamentToDB(v);
             }
         });
 
@@ -132,7 +144,7 @@ public class FindTournamentActivity extends AppCompatActivity
 
     }
 
-    private void saveGroceryToDB(View v) {
+    private void saveTournamentToDB(View v) {
 
         Tournament tournament = new Tournament();
 
@@ -140,18 +152,26 @@ public class FindTournamentActivity extends AppCompatActivity
         String newTournamentGameType = gameType.getText().toString();
         String newTournamentFormatName = formatName.getText().toString();
         String newTournamentNumParticipants = numParticipants.getText().toString();
+        String newStageType = stageType.getText().toString();
+        String newSkillLevel = skillLevel.getText().toString();
+        String newTotalRounds = totalRounds.getText().toString();
+        String newDescription = description.getText().toString();
 
         tournament.setName(newTournament);
         tournament.setGameType(newTournamentGameType);
         tournament.setFormatName(newTournamentFormatName);
         tournament.setNumParticipants(newTournamentNumParticipants);
+        tournament.setStageType(newStageType);
+        tournament.setSkillLevel(newSkillLevel);
+        tournament.setTotalRounds(newTotalRounds);
+        tournament.setDescription(newDescription);
 
         //Save to DB
         db.addTournament(tournament);
 
         Snackbar.make(v, "Item Saved!", Snackbar.LENGTH_LONG).show();
 
-        // Log.d("Item Added ID:", String.valueOf(db.getGroceriesCount()));
+        // Log.d("Item Added ID:", String.valueOf(db.getTournamentCount()));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
