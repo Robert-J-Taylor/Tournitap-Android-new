@@ -220,19 +220,18 @@ public class FindTournamentActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.findTournament) {
+            Intent intent = new Intent(FindTournamentActivity.this, FindTournamentActivity.class);
+            startActivity(intent);
         }
+
+        else if (id == R.id.createTournament)
+        {
+            createPopDialog();
+        }
+        else if (id == R.id.searchFriends) {  }
+        else if (id == R.id.contactUs) {  }
+        else if (id == R.id.aboutUs) {  }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
