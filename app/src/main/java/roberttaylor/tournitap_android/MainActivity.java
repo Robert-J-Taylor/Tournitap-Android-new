@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import roberttaylor.tournitap_android.Data.DatabaseHandler;
 import roberttaylor.tournitap_android.Model.Tournament;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity
     private EditText totalRounds;
     private EditText description;
     private Button saveButton;
+    private TextView aboutUs;
+    private TextView contactUs;
 
     private DatabaseHandler db;
 
@@ -61,6 +64,23 @@ public class MainActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.tournitap_logo_web);
+
+        aboutUs = (TextView) findViewById(R.id.aboutUs);
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                startActivity(intent);
+            }
+        });
+        contactUs = (TextView) findViewById(R.id.contactUs);
+        contactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ContactUs.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -112,15 +132,20 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.findTournament) {
             Intent intent = new Intent(MainActivity.this, FindTournamentActivity.class);
             startActivity(intent);
-        } else if (id == R.id.createTournament) {
+        }
+        else if (id == R.id.createTournament) {
             createPopupDialog();
-        } else if (id == R.id.searchFriends) {
+        }
+        else if (id == R.id.searchFriends) {
 
-        } else if (id == R.id.contactUs) {
-
-        } else if (id == R.id.aboutUs) {
-
-
+        }
+        else if (id == R.id.contactUs) {
+            Intent intent = new Intent(MainActivity.this, ContactUs.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.aboutUs) {
+            Intent intent = new Intent(MainActivity.this, ContactUs.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
