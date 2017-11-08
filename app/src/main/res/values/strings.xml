@@ -44,4 +44,13 @@
     <string name="skillLevel_Hint">Enter Skill Level</string>
     <string name="description_Hint">Enter Tournament Description</string>
     <string name="totalRounds_Hint">Enter Total # of Rounds</string>
+    <string name="registerTitle">Registration Form</string>
+    <string name="hint_firstName">Enter First Name</string>
+    <string name="hint_lastName">Enter Last Name</string>
+    <string name="hint_middleInitial">Enter Middle Initial</string>
+    <string name="hint_gender">Enter your gender(M,F, or O for Other)</string>
+    <string name="hint_email">Enter Email</string>
+    <string name="hint_Password">Enter Password for sign-in</string>
+    <string name="hint_UserName">Set New UserName</string>
+    <string name="save_userProfile">Submit Profile</string>
 </resources>

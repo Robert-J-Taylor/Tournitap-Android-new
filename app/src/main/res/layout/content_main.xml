@@ -67,25 +67,34 @@
         android:layout_height="fill_parent"
 
         android:gravity="center"
-        android:layout_above="@+id/footer"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <!--<TextView-->
+            <!--android:id="@+id/textView2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/fab"-->
+            <!--android:layout_marginBottom="28dp"-->
+            <!--android:textColor="#33E"-->
+            <!--android:textSize="20sp"/>-->
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/welcomeUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/fab"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="28dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginStart="48dp"
-            android:textColor="#33E"
-            android:textSize="20sp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAllCaps="true"
+            android:layout_centerVertical="true"
+            />
+
 
 
     </RelativeLayout>
+
+
 
 </RelativeLayout>
 

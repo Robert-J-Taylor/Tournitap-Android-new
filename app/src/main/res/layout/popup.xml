@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:id="@+id/layout_id"
               android:layout_width="match_parent"
@@ -96,6 +97,78 @@
                 android:textColor="@android:color/white"
                 android:textStyle="bold"/>
 
+            <ImageView
+                android:id="@+id/tournamentNameSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechTournamentName"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/tournamentName"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/gameTypeSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechGameType"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/gameType"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/formatSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechFormat"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/formatName"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/participantsSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechNumParticipants"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/numParticipants"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/stageTypeSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechStageType"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/stageType"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/skillLevelSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechSkillLevel"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/skillLevel"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/numRoundsSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechTotalNumRounds"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/totalRounds"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:id="@+id/tournamentDescriptionSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getSpeechTournamentDescription"
+                app:srcCompat="@android:drawable/ic_btn_speak_now"
+                android:layout_alignTop="@+id/description"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
 

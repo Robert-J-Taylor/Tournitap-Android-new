@@ -29,6 +29,7 @@ import roberttaylor.tournitap_android.Data.DatabaseHandler;
 import roberttaylor.tournitap_android.Model.Tournament;
 import roberttaylor.tournitap_android.UI.RecyclerViewAdapter;
 
+import static roberttaylor.tournitap_android.R.id.firstName;
 import static roberttaylor.tournitap_android.R.string.displayTournamentCount;
 
 public class FindTournamentActivity extends AppCompatActivity
@@ -69,6 +70,12 @@ public class FindTournamentActivity extends AppCompatActivity
             }
         });
         db = new DatabaseHandler(this);
+        Bundle extras = getIntent().getExtras();
+        final TextView userTournamentList = (TextView) findViewById(R.id.myTournament);
+        if(extras!=null)
+        {
+            userTournamentList.setText( extras.getString("firstName") +"'s" + " List of Created Tournaments");
+        }
 
         TextView count = (TextView) findViewById(R.id.tournamentDisplayCount);
         count.setText("Displaying " + String.valueOf(db.getTournamentCount()) + " Tournaments");

@@ -24,6 +24,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.SyncStateContract;
 import android.util.Log;
 import roberttaylor.tournitap_android.Model.Tournament;
+import roberttaylor.tournitap_android.Model.User;
 import roberttaylor.tournitap_android.Util.Constants;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ import java.util.List;
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String CREATE_GROCERY_TABLE = "CREATE TABLE " + Constants.TABLE_NAME + "("
+            String CREATE_TOURNAMENT_TABLE = "CREATE TABLE IF NOT EXISTS " + Constants.TABLE_NAME + "("
                     + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_NAME + " TEXT,"
                     + Constants.KEY_GAMETYPE + " TEXT,"
                     + Constants.KEY_FORMATNAME + " TEXT,"
@@ -49,15 +50,28 @@ import java.util.List;
                     + Constants.KEY_TOTALROUNDS + " TEXT,"
                     + Constants.KEY_DESCRIPTION + " TEXT);";
 
-            db.execSQL(CREATE_GROCERY_TABLE);
+
+            String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + Constants.TABLE_NAME_USER + "("
+                    + Constants.KEY_USER_ID + " INTEGER PRIMARY KEY," + Constants.KEY_FIRSTNAME + " TEXT,"
+                    + Constants.KEY_LASTNAME + " TEXT,"
+                    + Constants.KEY_MIDDLEINITIAL + " TEXT,"
+                    + Constants.KEY_PASSWORD + " TEXT,"
+                    + Constants.KEY_GENDER + " TEXT,"
+                    + Constants.KEY_EMAIL + " TEXT,"
+                    + Constants.KEY_USERNAME + " TEXT);";
+
+
+            db.execSQL(CREATE_TOURNAMENT_TABLE);
+            db.execSQL(CREATE_USER_TABLE);
 
 
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
             db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME_USER);
+
 
             onCreate(db);
 
@@ -87,7 +101,26 @@ import java.util.List;
             Log.d("Saved!!", "Saved to DB");
 
         }
+        public void addUser(User user){
+            SQLiteDatabase db = this.getWritableDatabase();
 
+            ContentValues value = new ContentValues();
+            value.put(Constants.KEY_FIRSTNAME, user.getFirstName());
+            value.put(Constants.KEY_LASTNAME, user.getLastName());
+            value.put(Constants.KEY_MIDDLEINITIAL, user.getMiddleInitial());
+            value.put(Constants.KEY_PASSWORD, user.getPassword());
+            value.put(Constants.KEY_GENDER, user.getGender());
+            value.put(Constants.KEY_EMAIL, user.getFirstName());
+            value.put(Constants.KEY_USERNAME,user.getUserName());
+
+
+
+
+            //Insert the row
+            db.insert(Constants.TABLE_NAME_USER,null,value);
+
+            Log.d("Saved!!", "Saved User to DB");
+        }
 
         //Get a Tournament
         public Tournament getTournament(int id) {
@@ -117,6 +150,43 @@ import java.util.List;
 
 
             return tournament;
+        }
+
+        //Get a User
+
+        public User getUser(int id) {
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            Cursor cursor = db.query(Constants.TABLE_NAME_USER, new String[] {
+                            Constants.KEY_USER_ID,
+                            Constants.KEY_FIRSTNAME,
+                            Constants.KEY_LASTNAME,
+                            Constants.KEY_MIDDLEINITIAL,
+                            Constants.KEY_PASSWORD,
+                            Constants.KEY_GENDER,
+                            Constants.KEY_EMAIL,
+                            Constants.KEY_USERNAME,
+                            Constants.KEY_USER_ID},
+                    Constants.KEY_ID + "=?",
+                    new String[] {String.valueOf(id)}, null, null, null, null);
+
+            if (cursor != null)
+                cursor.moveToFirst();
+
+
+            User user = new User();
+            user.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Constants.KEY_USER_ID))));
+            user.setFirstName(cursor.getString(cursor.getColumnIndex(Constants.KEY_FIRSTNAME)));
+            user.setLastName(cursor.getString(cursor.getColumnIndex(Constants.KEY_LASTNAME)));
+            user.setMiddleInitial(cursor.getString(cursor.getColumnIndex(Constants.KEY_MIDDLEINITIAL)));
+            user.setPassword(cursor.getString(cursor.getColumnIndex(Constants.KEY_PASSWORD)));
+            user.setGender(cursor.getString(cursor.getColumnIndex(Constants.KEY_GENDER)));
+            user.setEmail(cursor.getString(cursor.getColumnIndex(Constants.KEY_EMAIL)));
+            user.setEmail(cursor.getString(cursor.getColumnIndex(Constants.KEY_USERNAME)));
+
+
+
+            return user;
         }
 
 
@@ -188,7 +258,7 @@ import java.util.List;
         }
 
 
-        //Get count
+        //Get tournament count
         public int getTournamentCount() {
             String countQuery = "SELECT * FROM " + Constants.TABLE_NAME;
             SQLiteDatabase db = this.getReadableDatabase();
