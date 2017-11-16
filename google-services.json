@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "357702024256",
+    "project_id": "firebase-tournitap"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357702024256:android:1358949b3b53ea9a",
+        "android_client_info": {
+          "package_name": "roberttaylor.tournitap_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357702024256-a8cvo0rg03r6ghugia0cc5agu58p0tnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "roberttaylor.tournitap_android",
+            "certificate_hash": "665e4e46b5abe15db2a5e70570ad7d19a961d1a1"
+          }
+        },
+        {
+          "client_id": "357702024256-o5oc51e03sm82cc9umjhjfteauhurg7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6ZcNbxC-K3JUjflSVGPLarDdy9on63cA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
