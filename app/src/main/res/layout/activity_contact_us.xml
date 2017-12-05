@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="roberttaylor.tournitap_android.ContactUs">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#bf311a" >
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_marginLeft="37dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="35dp"
+        android:text="@string/addy"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignParentRight="true"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#000000"
+        android:text="@string/questions"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        android:text="@string/cell"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/editText2"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="25dp"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+       />
+
+</RelativeLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="roberttaylor.tournitap_android.ContactUs">-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/editTextAboutUsEmail"-->
+        <!--android:layout_width="216dp"-->
+        <!--android:layout_height="36dp"-->
+        <!--android:layout_marginTop="23dp"-->
+        <!--android:text="Tournitapapp@gmail.com"-->
+        <!--android:textAppearance="@android:style/TextAppearance.Material.Medium"-->
+        <!--android:textColor="@android:color/background_dark"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/editTextAboutUsTitle"-->
+        <!--tools:layout_editor_absoluteX="84dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/editTextAboutUsTitle"-->
+        <!--android:layout_width="103dp"-->
+        <!--android:layout_height="23dp"-->
+        <!--android:text="About Us"-->
+        <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginTop="100dp"-->
+        <!--android:layout_marginRight="141dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="1.0" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/editTextAboutUsPhNo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="14dp"-->
+        <!--android:text="@string/phoneNumber"-->
+        <!--android:textAppearance="@android:style/TextAppearance.Material.Medium"-->
+        <!--android:textColor="@android:color/background_dark"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/editTextAboutUsEmail"-->
+        <!--tools:layout_editor_absoluteX="137dp" />-->
+<!--</android.support.constraint.ConstraintLayout>-->

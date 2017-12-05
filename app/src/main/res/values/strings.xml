@@ -53,4 +53,9 @@
     <string name="hint_Password">Enter Password for sign-in</string>
     <string name="hint_UserName">Set New UserName</string>
     <string name="save_userProfile">Submit Profile</string>
+    <string name="phoneNumber">612-607-3182</string>
+    <string name="name">Names</string>
+    <string name="addy">Address</string>
+    <string name="questions">Question</string>
+    <string name="cell">Phone</string>
 </resources>

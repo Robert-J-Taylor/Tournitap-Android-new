@@ -122,7 +122,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.searchFriends) {
 
         } else if (id == R.id.contactUs) {
-
+            Intent intent2 = new Intent(MainActivity.this, ContactUs.class);
+            startActivity(intent2);
         } else if (id == R.id.aboutUs) {
 
 
